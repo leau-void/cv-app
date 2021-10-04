@@ -5,10 +5,11 @@ import ProfessionalInfo from "./ProfessionalInfo";
 
 class OuterForm extends Component {
   render() {
+    const { state, handlers } = this.props;
     return (
       <div>
-        <GeneralInfo />
-        <EducationInfo />
+        <GeneralInfo state={state.general} handlers={handlers} />
+        <EducationInfo stateArray={state.education} handlers={handlers} />
         <ProfessionalInfo />
       </div>
     );
