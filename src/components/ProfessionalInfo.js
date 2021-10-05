@@ -39,6 +39,13 @@ class ProfessionalInfo extends Component {
                   index={index}
                 />
               )}
+              <button
+                onClick={() =>
+                  handlers.removeEntry({ zone: "professional", index })
+                }
+              >
+                Remove Entry
+              </button>
             </div>
           );
         })}

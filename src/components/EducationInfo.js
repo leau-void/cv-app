@@ -39,6 +39,13 @@ class EducationInfo extends Component {
                   index={index}
                 />
               )}
+              <button
+                onClick={() =>
+                  handlers.removeEntry({ zone: "education", index })
+                }
+              >
+                Remove Entry
+              </button>
             </div>
           );
         })}

@@ -31,7 +31,7 @@ class InnerForm extends Component {
             ></input>
           );
         })}
-        <button onClick={(e) => handlers.saveInput({ e, state, zone, index })}>
+        <button onClick={(e) => handlers.saveInput({ state, zone, index })}>
           Save
         </button>
         <button onClick={(e) => handlers.clearInput({ zone, index })}>

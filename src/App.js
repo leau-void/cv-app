@@ -55,6 +55,7 @@ class App extends Component {
       saveInput: this.saveInput.bind(this),
       clearInput: this.clearInput.bind(this),
       addEntry: this.addEntry.bind(this),
+      removeEntry: this.removeEntry.bind(this),
     };
 
     this.state = JSON.parse(JSON.stringify(defaultState));
@@ -80,7 +81,7 @@ class App extends Component {
     });
   }
 
-  saveInput({ e, state: targetObj, zone, index }) {
+  saveInput({ state: targetObj, zone, index }) {
     this.setState((prevState) => {
       const newState = { ...prevState };
       let newZone;
@@ -128,6 +129,18 @@ class App extends Component {
         ...newState[zone],
         JSON.parse(JSON.stringify(defaultState[zone][0])),
       ];
+      return newState;
+    });
+  }
+
+  removeEntry({ zone, index }) {
+    this.setState((prevState) => {
+      const newState = { ...prevState };
+      newState[zone] = [
+        ...newState[zone].slice(0, index),
+        ...newState[zone].slice(index + 1),
+      ];
+
       return newState;
     });
   }
