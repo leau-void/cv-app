@@ -5,16 +5,13 @@ import InnerForm from "./InnerForm";
 class EducationInfo extends Component {
   constructor(props) {
     super(props);
-    this.inputs = {
-      placeholders: {
-        name: "Jane Doe",
-        title: "Software Engineer",
-        address: "123 Main St., Toronto, CA",
-        phone: "(123) 456-7890",
-        email: "jane_doe@example.com",
-        description: "Description...",
-      },
-      except: ["description"],
+    this.placeholders = {
+      name: "Institution Name",
+      degree: "Degree",
+      city: "City",
+      from: "From",
+      to: "To",
+      description: "Further description or achievements",
     };
   }
 
@@ -25,13 +22,13 @@ class EducationInfo extends Component {
         {stateArray.map((state, index) => {
           const { current, saved } = state;
           return (
-            <div>
+            <div key={index}>
               {state.doEdit ? (
                 <InnerForm
                   state={current}
                   handlers={handlers}
                   zone="education"
-                  inputs={this.inputs}
+                  placeholders={this.placeholders}
                   index={index}
                 />
               ) : (
@@ -45,6 +42,9 @@ class EducationInfo extends Component {
             </div>
           );
         })}
+        <button onClick={() => handlers.addEntry({ zone: "education" })}>
+          Add Entry
+        </button>
       </div>
     );
   }

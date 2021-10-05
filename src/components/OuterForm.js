@@ -10,7 +10,7 @@ class OuterForm extends Component {
       <div>
         <GeneralInfo state={state.general} handlers={handlers} />
         <EducationInfo stateArray={state.education} handlers={handlers} />
-        <ProfessionalInfo />
+        <ProfessionalInfo stateArray={state.professional} handlers={handlers} />
       </div>
     );
   }

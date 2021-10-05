@@ -5,16 +5,13 @@ import InnerForm from "./InnerForm";
 class GeneralInfo extends Component {
   constructor(props) {
     super(props);
-    this.inputs = {
-      placeholders: {
-        name: "Jane Doe",
-        title: "Software Engineer",
-        address: "123 Main St., Toronto, CA",
-        phone: "(123) 456-7890",
-        email: "jane_doe@example.com",
-        description: "Description...",
-      },
-      except: ["description"],
+    this.placeholders = {
+      name: "Full Name",
+      title: "Title or Position",
+      address: "Adress",
+      phone: "Phone",
+      email: "Email",
+      description: "Description...",
     };
   }
 
@@ -30,7 +27,7 @@ class GeneralInfo extends Component {
             state={current}
             handlers={handlers}
             zone="general"
-            inputs={this.inputs}
+            placeholders={this.placeholders}
           />
         ) : (
           <Overview state={saved} handlers={handlers} zone="general" />

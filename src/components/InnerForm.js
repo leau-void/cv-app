@@ -2,19 +2,20 @@ import React, { Component } from "react";
 
 class InnerForm extends Component {
   render() {
-    const { state, handlers, zone, inputs, index } = this.props;
+    const { state, handlers, zone, placeholders, index } = this.props;
     return (
       <div>
-        {Object.keys(state).map((key) => {
-          if (key === "description") {
+        {Object.keys(state).map((prop) => {
+          if (prop === "description") {
             return (
               <textarea
-                value={state[key]}
-                placeholder={inputs.placeholders[key]}
+                value={state[prop]}
+                placeholder={placeholders[prop]}
                 onChange={(e) =>
-                  handlers.fetchInput({ e, state, key, zone, index })
+                  handlers.fetchInput({ e, state, prop, zone, index })
                 }
-                className={`${zone}-${key}`}
+                key={prop}
+                className={`${zone}__${prop} ${zone}__input inner-form__input inner-form__textarea`}
               ></textarea>
             );
           }
@@ -22,10 +23,11 @@ class InnerForm extends Component {
           return (
             <input
               type="text"
-              value={state[key]}
-              placeholder={inputs.placeholders[key]}
-              onChange={(e) => handlers.fetchInput({ e, key, zone, index })}
-              className={`${zone}-${key}`}
+              value={state[prop]}
+              placeholder={placeholders[prop]}
+              onChange={(e) => handlers.fetchInput({ e, prop, zone, index })}
+              key={prop}
+              className={`${zone}__${prop} ${zone}__input inner-form__input`}
             ></input>
           );
         })}

@@ -20,29 +20,30 @@ const defaultState = {
     {
       current: {
         name: "",
-        title: "",
-        address: "",
-        phone: "",
-        email: "",
-        description: "",
-      },
-      saved: {},
-      doEdit: true,
-    },
-    {
-      current: {
-        name: "",
-        title: "",
-        address: "",
-        phone: "",
-        email: "",
+        degree: "",
+        city: "",
+        from: "",
+        to: "",
         description: "",
       },
       saved: {},
       doEdit: true,
     },
   ],
-  professional: [{}],
+  professional: [
+    {
+      current: {
+        position: "",
+        company: "",
+        city: "",
+        from: "",
+        to: "",
+        description: "",
+      },
+      saved: {},
+      doEdit: true,
+    },
+  ],
 };
 
 class App extends Component {
@@ -51,33 +52,58 @@ class App extends Component {
 
     this.handlers = {
       fetchInput: this.fetchInput.bind(this),
+      saveInput: this.saveInput.bind(this),
       clearInput: this.clearInput.bind(this),
+      addEntry: this.addEntry.bind(this),
     };
 
     this.state = JSON.parse(JSON.stringify(defaultState));
   }
 
-  fetchInput({ e, key: targetKey, zone, index }) {
+  fetchInput({ e, prop, zone, index }) {
     this.setState((prevState) => {
       const newState = { ...prevState };
       if (Array.isArray(newState[zone])) {
         const newSubZone = {
           ...prevState[zone][index].current,
-          [targetKey]: e.target.value,
+          [prop]: e.target.value,
         };
 
         newState[zone][index].current = newSubZone;
       } else {
         newState[zone].current = {
           ...newState[zone].current,
-          [targetKey]: e.target.value,
+          [prop]: e.target.value,
         };
       }
       return newState;
     });
   }
 
-  saveInput({ e, state: targetObj, zone, index }) {}
+  saveInput({ e, state: targetObj, zone, index }) {
+    this.setState((prevState) => {
+      const newState = { ...prevState };
+      let newZone;
+      if (Array.isArray(newState[zone])) {
+        newZone = [...newState[zone]];
+        const newSubZone = {
+          ...prevState[zone][index],
+          doEdit: false,
+          saved: { ...targetObj },
+        };
+        newZone[index] = newSubZone;
+      } else {
+        newZone = {
+          ...prevState[zone],
+          doEdit: false,
+          saved: { ...targetObj },
+        };
+      }
+
+      newState[zone] = newZone;
+      return newState;
+    });
+  }
 
   clearInput({ zone, index }) {
     this.setState((prevState) => {
@@ -91,6 +117,17 @@ class App extends Component {
         newZone = { ...defaultState[zone] };
       }
       newState[zone] = newZone;
+      return newState;
+    });
+  }
+
+  addEntry({ zone }) {
+    this.setState((prevState) => {
+      const newState = { ...prevState };
+      newState[zone] = [
+        ...newState[zone],
+        JSON.parse(JSON.stringify(defaultState[zone][0])),
+      ];
       return newState;
     });
   }
