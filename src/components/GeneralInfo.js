@@ -21,7 +21,8 @@ class GeneralInfo extends Component {
       handlers,
     } = this.props;
     return (
-      <div>
+      <div className="zone zone_general">
+        <h2 className="zone__name">Personnal Information</h2>
         {this.props.state.doEdit ? (
           <InnerForm
             state={current}

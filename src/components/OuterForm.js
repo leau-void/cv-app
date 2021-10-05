@@ -7,10 +7,20 @@ class OuterForm extends Component {
   render() {
     const { state, handlers } = this.props;
     return (
-      <div>
+      <div className="outer-form">
         <GeneralInfo state={state.general} handlers={handlers} />
-        <EducationInfo stateArray={state.education} handlers={handlers} />
         <ProfessionalInfo stateArray={state.professional} handlers={handlers} />
+        <EducationInfo stateArray={state.education} handlers={handlers} />
+
+        <button
+          className="button button_example"
+          onClick={handlers.loadExample}
+        >
+          Load Example
+        </button>
+        <button className="button button_reset" onClick={handlers.resetForm}>
+          Reset
+        </button>
       </div>
     );
   }

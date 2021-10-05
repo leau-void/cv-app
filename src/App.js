@@ -1,5 +1,7 @@
 import "./App.css";
 import React, { Component } from "react";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Preview from "./components/Preview";
 import OuterForm from "./components/OuterForm";
 
@@ -46,6 +48,97 @@ const defaultState = {
   ],
 };
 
+const exampleState = {
+  general: {
+    current: {
+      name: "",
+      title: "",
+      address: "",
+      phone: "",
+      email: "",
+      description: "",
+    },
+    saved: {},
+    doEdit: true,
+  },
+  education: [
+    {
+      current: {
+        name: "",
+        degree: "",
+        city: "",
+        from: "",
+        to: "",
+        description: "",
+      },
+      saved: {},
+      doEdit: true,
+    },
+    {
+      current: {
+        name: "",
+        degree: "",
+        city: "",
+        from: "",
+        to: "",
+        description: "",
+      },
+      saved: {},
+      doEdit: true,
+    },
+    {
+      current: {
+        name: "",
+        degree: "",
+        city: "",
+        from: "",
+        to: "",
+        description: "",
+      },
+      saved: {},
+      doEdit: true,
+    },
+  ],
+  professional: [
+    {
+      current: {
+        position: "",
+        company: "",
+        city: "",
+        from: "",
+        to: "",
+        description: "",
+      },
+      saved: {},
+      doEdit: true,
+    },
+    {
+      current: {
+        position: "",
+        company: "",
+        city: "",
+        from: "",
+        to: "",
+        description: "",
+      },
+      saved: {},
+      doEdit: true,
+    },
+    {
+      current: {
+        position: "",
+        company: "",
+        city: "",
+        from: "",
+        to: "",
+        description: "",
+      },
+      saved: {},
+      doEdit: true,
+    },
+  ],
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -56,6 +149,8 @@ class App extends Component {
       clearInput: this.clearInput.bind(this),
       addEntry: this.addEntry.bind(this),
       removeEntry: this.removeEntry.bind(this),
+      loadExample: this.loadExample.bind(this),
+      resetForm: this.resetForm.bind(this),
     };
 
     this.state = JSON.parse(JSON.stringify(defaultState));
@@ -145,11 +240,21 @@ class App extends Component {
     });
   }
 
+  loadExample() {
+    this.setState(JSON.parse(JSON.stringify(exampleState)));
+  }
+
+  resetForm() {
+    this.setState(JSON.parse(JSON.stringify(defaultState)));
+  }
+
   render() {
     return (
       <div>
+        <Header />
         <OuterForm state={this.state} handlers={this.handlers} />
         <Preview />
+        <Footer />
       </div>
     );
   }

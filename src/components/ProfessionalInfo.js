@@ -18,7 +18,8 @@ class ProfessionalInfo extends Component {
   render() {
     const { stateArray, handlers } = this.props;
     return (
-      <div>
+      <div className="zone zone_professional">
+        <h2 className="zone__name">Professional Experience</h2>
         {stateArray.map((state, index) => {
           const { current, saved } = state;
           return (

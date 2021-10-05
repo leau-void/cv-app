@@ -18,7 +18,8 @@ class EducationInfo extends Component {
   render() {
     const { stateArray, handlers } = this.props;
     return (
-      <div>
+      <div className="zone zone_education">
+        <h2 className="zone__name">Education</h2>
         {stateArray.map((state, index) => {
           const { current, saved } = state;
           return (
@@ -40,6 +41,7 @@ class EducationInfo extends Component {
                 />
               )}
               <button
+                className="button button_add"
                 onClick={() =>
                   handlers.removeEntry({ zone: "education", index })
                 }
@@ -49,7 +51,10 @@ class EducationInfo extends Component {
             </div>
           );
         })}
-        <button onClick={() => handlers.addEntry({ zone: "education" })}>
+        <button
+          className="button button_remove"
+          onClick={() => handlers.addEntry({ zone: "education" })}
+        >
           Add Entry
         </button>
       </div>
