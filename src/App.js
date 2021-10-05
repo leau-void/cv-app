@@ -46,6 +46,12 @@ const defaultState = {
       doEdit: true,
     },
   ],
+  skills: {
+    current: {
+      value: "",
+    },
+    saved: [],
+  },
 };
 
 const exampleState = {
@@ -137,6 +143,12 @@ const exampleState = {
       doEdit: true,
     },
   ],
+  skills: {
+    current: {
+      value: "",
+    },
+    saved: [],
+  },
 };
 
 class App extends Component {
@@ -149,6 +161,8 @@ class App extends Component {
       clearInput: this.clearInput.bind(this),
       addEntry: this.addEntry.bind(this),
       removeEntry: this.removeEntry.bind(this),
+      addSkill: this.addSkill.bind(this),
+      removeSkill: this.removeSkill.bind(this),
       loadExample: this.loadExample.bind(this),
       resetForm: this.resetForm.bind(this),
     };
@@ -236,6 +250,33 @@ class App extends Component {
         ...newState[zone].slice(index + 1),
       ];
 
+      return newState;
+    });
+  }
+
+  addSkill(e) {
+    e.preventDefault();
+    this.setState((prevState) => {
+      const newState = { ...prevState };
+      const newSkills = { ...newState.skills };
+      const newSavedSkills = [...newSkills.saved, newSkills.current.value];
+      newSkills.saved = newSavedSkills;
+      newSkills.current.value = "";
+      newState.skills = newSkills;
+      return newState;
+    });
+  }
+
+  removeSkill({ index }) {
+    this.setState((prevState) => {
+      const newState = { ...prevState };
+      const newSkills = { ...newState.skills };
+      const newSavedSkills = [
+        ...newSkills.saved.slice(0, index),
+        ...newSkills.saved.slice(index + 1),
+      ];
+      newSkills.saved = newSavedSkills;
+      newState.skills = newSkills;
       return newState;
     });
   }

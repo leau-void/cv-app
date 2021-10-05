@@ -17,6 +17,7 @@ class EducationInfo extends Component {
 
   render() {
     const { stateArray, handlers } = this.props;
+    const zone = "education";
     return (
       <div className="zone zone_education">
         <h2 className="zone__name">Education</h2>
@@ -28,7 +29,7 @@ class EducationInfo extends Component {
                 <InnerForm
                   state={current}
                   handlers={handlers}
-                  zone="education"
+                  zone={zone}
                   placeholders={this.placeholders}
                   index={index}
                 />
@@ -36,15 +37,13 @@ class EducationInfo extends Component {
                 <Overview
                   state={saved}
                   handlers={handlers}
-                  zone="education"
+                  zone={zone}
                   index={index}
                 />
               )}
               <button
                 className="button button_add"
-                onClick={() =>
-                  handlers.removeEntry({ zone: "education", index })
-                }
+                onClick={() => handlers.removeEntry({ zone, index })}
               >
                 Remove Entry
               </button>
@@ -53,7 +52,7 @@ class EducationInfo extends Component {
         })}
         <button
           className="button button_remove"
-          onClick={() => handlers.addEntry({ zone: "education" })}
+          onClick={() => handlers.addEntry({ zone })}
         >
           Add Entry
         </button>

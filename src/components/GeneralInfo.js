@@ -20,6 +20,7 @@ class GeneralInfo extends Component {
       state: { current, saved },
       handlers,
     } = this.props;
+    const zone = "general";
     return (
       <div className="zone zone_general">
         <h2 className="zone__name">Personnal Information</h2>
@@ -27,11 +28,11 @@ class GeneralInfo extends Component {
           <InnerForm
             state={current}
             handlers={handlers}
-            zone="general"
+            zone={zone}
             placeholders={this.placeholders}
           />
         ) : (
-          <Overview state={saved} handlers={handlers} zone="general" />
+          <Overview state={saved} handlers={handlers} zone={zone} />
         )}
       </div>
     );

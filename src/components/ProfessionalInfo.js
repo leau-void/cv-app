@@ -17,6 +17,7 @@ class ProfessionalInfo extends Component {
 
   render() {
     const { stateArray, handlers } = this.props;
+    const zone = "professional";
     return (
       <div className="zone zone_professional">
         <h2 className="zone__name">Professional Experience</h2>
@@ -28,7 +29,7 @@ class ProfessionalInfo extends Component {
                 <InnerForm
                   state={current}
                   handlers={handlers}
-                  zone="professional"
+                  zone={zone}
                   placeholders={this.placeholders}
                   index={index}
                 />
@@ -36,23 +37,17 @@ class ProfessionalInfo extends Component {
                 <Overview
                   state={saved}
                   handlers={handlers}
-                  zone="professional"
+                  zone={zone}
                   index={index}
                 />
               )}
-              <button
-                onClick={() =>
-                  handlers.removeEntry({ zone: "professional", index })
-                }
-              >
+              <button onClick={() => handlers.removeEntry({ zone, index })}>
                 Remove Entry
               </button>
             </div>
           );
         })}
-        <button onClick={() => handlers.addEntry({ zone: "professional" })}>
-          Add Entry
-        </button>
+        <button onClick={() => handlers.addEntry({ zone })}>Add Entry</button>
       </div>
     );
   }

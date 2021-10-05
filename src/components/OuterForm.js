@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import GeneralInfo from "./GeneralInfo";
 import EducationInfo from "./EducationInfo";
 import ProfessionalInfo from "./ProfessionalInfo";
+import Skills from "./Skills";
 
 class OuterForm extends Component {
   render() {
@@ -11,6 +12,7 @@ class OuterForm extends Component {
         <GeneralInfo state={state.general} handlers={handlers} />
         <ProfessionalInfo stateArray={state.professional} handlers={handlers} />
         <EducationInfo stateArray={state.education} handlers={handlers} />
+        <Skills state={state.skills} handlers={handlers} />
 
         <button
           className="button button_example"
