@@ -1,3 +1,4 @@
+import "../styles/skills.css";
 import React, { Component } from "react";
 
 class Skills extends Component {
@@ -8,7 +9,8 @@ class Skills extends Component {
     } = this.props;
     const zone = "skills";
     return (
-      <div className="skills">
+      <div className="zone zone_skills">
+        <h2 className="zone__name">Skills</h2>
         <form onSubmit={handlers.addSkill}>
           <input
             onChange={(e) => handlers.fetchInput({ e, zone, prop: "value" })}

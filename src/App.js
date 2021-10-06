@@ -294,7 +294,7 @@ class App extends Component {
       <div>
         <Header />
         <OuterForm state={this.state} handlers={this.handlers} />
-        <Preview />
+        <Preview state={this.state} />
         <Footer />
       </div>
     );

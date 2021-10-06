@@ -1,3 +1,6 @@
+import "../styles/outer-form.css";
+import "../styles/zone.css";
+import "../styles/button.css";
 import React, { Component } from "react";
 import GeneralInfo from "./GeneralInfo";
 import EducationInfo from "./EducationInfo";

@@ -1,3 +1,4 @@
+import "../styles/inner-form.css";
 import React, { Component } from "react";
 
 class InnerForm extends Component {

@@ -1,3 +1,4 @@
+import "../styles/footer.css";
 import React, { Component } from "react";
 import githubLogo from "../assets/githubLogo.png";
 
