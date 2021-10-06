@@ -2,10 +2,28 @@
 }
 
 .pdf-viewer {
+  --scale: 0.4;
+  --margin-b: calc(20px + calc((var(--scale) - 1) * 55vw));
   display: block;
+  transform: scale(var(--scale));
+  transform-origin: top center;
+  margin: 0 auto;
+  margin-bottom: var(--margin-b);
   /* width: 90vw;
   height: calc(90vw / 210 * 297); */
 }
 
 .pdf-download {
+}
+
+@media (min-width: 500px) {
+  .pdf-viewer {
+    --scale: 0.7;
+  }
+}
+
+@media (min-width: 700px) {
+  .pdf-viewer {
+    --scale: 1;
+  }
 }

@@ -18,10 +18,14 @@ class Preview extends Component {
             loading ? "Loading document..." : "Download now!"
           }
         </PDFDownloadLink>
-        <PDFViewer className="pdf-viewer" showToolbar={false}>
+        <PDFViewer
+          className="pdf-viewer"
+          showToolbar={false}
+          width={596}
+          height={842}
+        >
           <PDFMaker state={state} />
         </PDFViewer>
-        ;
       </div>
     );
   }
