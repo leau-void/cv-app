@@ -4,152 +4,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Preview from "./components/Preview";
 import OuterForm from "./components/OuterForm";
-
-const defaultState = {
-  general: {
-    current: {
-      name: "",
-      title: "",
-      address: "",
-      phone: "",
-      email: "",
-      description: "",
-    },
-    saved: {},
-    doEdit: true,
-  },
-  education: [
-    {
-      current: {
-        name: "",
-        degree: "",
-        city: "",
-        from: "",
-        to: "",
-        description: "",
-      },
-      saved: {},
-      doEdit: true,
-    },
-  ],
-  professional: [
-    {
-      current: {
-        position: "",
-        company: "",
-        city: "",
-        from: "",
-        to: "",
-        description: "",
-      },
-      saved: {},
-      doEdit: true,
-    },
-  ],
-  skills: {
-    current: {
-      value: "",
-    },
-    saved: [],
-  },
-};
-
-const exampleState = {
-  general: {
-    current: {
-      name: "",
-      title: "",
-      address: "",
-      phone: "",
-      email: "",
-      description: "",
-    },
-    saved: {},
-    doEdit: true,
-  },
-  education: [
-    {
-      current: {
-        name: "",
-        degree: "",
-        city: "",
-        from: "",
-        to: "",
-        description: "",
-      },
-      saved: {},
-      doEdit: true,
-    },
-    {
-      current: {
-        name: "",
-        degree: "",
-        city: "",
-        from: "",
-        to: "",
-        description: "",
-      },
-      saved: {},
-      doEdit: true,
-    },
-    {
-      current: {
-        name: "",
-        degree: "",
-        city: "",
-        from: "",
-        to: "",
-        description: "",
-      },
-      saved: {},
-      doEdit: true,
-    },
-  ],
-  professional: [
-    {
-      current: {
-        position: "",
-        company: "",
-        city: "",
-        from: "",
-        to: "",
-        description: "",
-      },
-      saved: {},
-      doEdit: true,
-    },
-    {
-      current: {
-        position: "",
-        company: "",
-        city: "",
-        from: "",
-        to: "",
-        description: "",
-      },
-      saved: {},
-      doEdit: true,
-    },
-    {
-      current: {
-        position: "",
-        company: "",
-        city: "",
-        from: "",
-        to: "",
-        description: "",
-      },
-      saved: {},
-      doEdit: true,
-    },
-  ],
-  skills: {
-    current: {
-      value: "",
-    },
-    saved: [],
-  },
-};
+import defaultState from "./data/defaultState";
+import exampleState from "./data/exampleState";
 
 class App extends Component {
   constructor(props) {
@@ -157,7 +13,6 @@ class App extends Component {
 
     this.handlers = {
       fetchInput: this.fetchInput.bind(this),
-      saveInput: this.saveInput.bind(this),
       clearInput: this.clearInput.bind(this),
       addEntry: this.addEntry.bind(this),
       removeEntry: this.removeEntry.bind(this),
@@ -175,42 +30,17 @@ class App extends Component {
       const newState = { ...prevState };
       if (Array.isArray(newState[zone])) {
         const newSubZone = {
-          ...prevState[zone][index].current,
-          [prop]: e.target.value,
-        };
-
-        newState[zone][index].current = newSubZone;
-      } else {
-        newState[zone].current = {
-          ...newState[zone].current,
-          [prop]: e.target.value,
-        };
-      }
-      return newState;
-    });
-  }
-
-  saveInput({ state: targetObj, zone, index }) {
-    this.setState((prevState) => {
-      const newState = { ...prevState };
-      let newZone;
-      if (Array.isArray(newState[zone])) {
-        newZone = [...newState[zone]];
-        const newSubZone = {
           ...prevState[zone][index],
-          doEdit: false,
-          saved: { ...targetObj },
+          [prop]: e.target.value,
         };
-        newZone[index] = newSubZone;
+
+        newState[zone][index] = newSubZone;
       } else {
-        newZone = {
-          ...prevState[zone],
-          doEdit: false,
-          saved: { ...targetObj },
+        newState[zone] = {
+          ...newState[zone],
+          [prop]: e.target.value,
         };
       }
-
-      newState[zone] = newZone;
       return newState;
     });
   }
@@ -258,10 +88,11 @@ class App extends Component {
     e.preventDefault();
     this.setState((prevState) => {
       const newState = { ...prevState };
-      const newSkills = { ...newState.skills };
-      const newSavedSkills = [...newSkills.saved, newSkills.current.value];
-      newSkills.saved = newSavedSkills;
-      newSkills.current.value = "";
+      const newSkills = {
+        ...newState.skills,
+        saved: [...prevState.skills.saved, prevState.skills.current],
+        current: "",
+      };
       newState.skills = newSkills;
       return newState;
     });

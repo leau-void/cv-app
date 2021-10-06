@@ -2,7 +2,7 @@ import "../styles/preview.css";
 import React, { Component } from "react";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { PDFViewer } from "@react-pdf/renderer";
-import PreviewPDF from "./PreviewPDF";
+import PDFMaker from "./PDFMaker";
 
 class Preview extends Component {
   render() {
@@ -11,15 +11,15 @@ class Preview extends Component {
       <div className="preview">
         <PDFDownloadLink
           className="pdf-download"
-          document={<PreviewPDF state={state} />}
-          fileName={`CV-${state.general.current.name}.pdf`}
+          document={<PDFMaker state={state} />}
+          fileName={`CV-${state.general.name}.pdf`}
         >
           {({ blob, url, loading, error }) =>
             loading ? "Loading document..." : "Download now!"
           }
         </PDFDownloadLink>
         <PDFViewer className="pdf-viewer" showToolbar={false}>
-          <PreviewPDF state={state} />
+          <PDFMaker state={state} />
         </PDFViewer>
         ;
       </div>

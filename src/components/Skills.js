@@ -13,8 +13,8 @@ class Skills extends Component {
         <h2 className="zone__name">Skills</h2>
         <form onSubmit={handlers.addSkill}>
           <input
-            onChange={(e) => handlers.fetchInput({ e, zone, prop: "value" })}
-            value={current.value}
+            onChange={(e) => handlers.fetchInput({ e, zone, prop: "current" })}
+            value={current}
           ></input>
           <button type="submit">Add</button>
         </form>

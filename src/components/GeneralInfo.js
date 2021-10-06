@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Overview from "./Overview";
 import InnerForm from "./InnerForm";
 
 class GeneralInfo extends Component {
@@ -16,24 +15,17 @@ class GeneralInfo extends Component {
   }
 
   render() {
-    const {
-      state: { current, saved },
-      handlers,
-    } = this.props;
+    const { state, handlers } = this.props;
     const zone = "general";
     return (
       <div className="zone zone_general">
         <h2 className="zone__name">Personnal Information</h2>
-        {this.props.state.doEdit ? (
-          <InnerForm
-            state={current}
-            handlers={handlers}
-            zone={zone}
-            placeholders={this.placeholders}
-          />
-        ) : (
-          <Overview state={saved} handlers={handlers} zone={zone} />
-        )}
+        <InnerForm
+          state={state}
+          handlers={handlers}
+          zone={zone}
+          placeholders={this.placeholders}
+        />
       </div>
     );
   }
