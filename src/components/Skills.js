@@ -11,6 +11,7 @@ class Skills extends Component {
     return (
       <div className="zone zone_skills">
         <h2 className="zone__name">Skills</h2>
+        <small>Add up to 5 skills.</small>
         <form onSubmit={handlers.addSkill}>
           <input
             onChange={(e) => handlers.fetchInput({ e, zone, prop: "current" })}
@@ -27,6 +28,12 @@ class Skills extends Component {
               className="button button_remove-skill"
               onClick={() => handlers.removeSkill({ index })}
             >
+              {saved.length >= 5 ? (
+                <span
+                  className="button__block"
+                  onClick={(e) => e.stopPropagation()}
+                ></span>
+              ) : null}
               X
             </button>
           </div>
