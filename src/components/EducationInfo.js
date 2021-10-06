@@ -20,6 +20,7 @@ class EducationInfo extends Component {
     return (
       <div className="zone zone_education">
         <h2 className="zone__name">Education</h2>
+        <small>Add up to 3 educational experiences.</small>
         {stateArray.map((state, index) => {
           return (
             <div key={index}>
@@ -32,7 +33,7 @@ class EducationInfo extends Component {
               />
 
               <button
-                className="button button_add"
+                className="button button_remove"
                 onClick={() => handlers.removeEntry({ zone, index })}
               >
                 Remove Entry
@@ -41,9 +42,15 @@ class EducationInfo extends Component {
           );
         })}
         <button
-          className="button button_remove"
+          className="button button_add"
           onClick={() => handlers.addEntry({ zone })}
         >
+          {stateArray.length >= 3 ? (
+            <span
+              className="button__block"
+              onClick={(e) => e.stopPropagation()}
+            ></span>
+          ) : null}
           Add Entry
         </button>
       </div>

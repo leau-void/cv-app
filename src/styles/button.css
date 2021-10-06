@@ -1,7 +1,5 @@
 .button {
-}
-
-.button_save {
+  position: relative;
 }
 
 .button_clear {
@@ -11,4 +9,24 @@
 }
 
 .button_remove {
+}
+
+.button_add-skill {
+}
+
+.button_remove-skill {
+}
+
+.button__block {
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+  opacity: 0.5;
+  display: inline-block;
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  left: 0;
 }

@@ -16,12 +16,19 @@ class Skills extends Component {
             onChange={(e) => handlers.fetchInput({ e, zone, prop: "current" })}
             value={current}
           ></input>
-          <button type="submit">Add</button>
+          <button type="submit" className="button button_add-skill">
+            Add
+          </button>
         </form>
         {saved.map((skill, index) => (
           <div key={index}>
             {skill}
-            <button onClick={() => handlers.removeSkill({ index })}>X</button>
+            <button
+              className="button button_remove-skill"
+              onClick={() => handlers.removeSkill({ index })}
+            >
+              X
+            </button>
           </div>
         ))}
       </div>
