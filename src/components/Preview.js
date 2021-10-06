@@ -1,39 +1,8 @@
 import "../styles/preview.css";
 import React, { Component } from "react";
-import {
-  PDFDownloadLink,
-  Document,
-  Page,
-  Text,
-  View,
-  StyleSheet,
-} from "@react-pdf/renderer";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import { PDFViewer } from "@react-pdf/renderer";
-import reactDom from "react-dom";
-
-const styles = StyleSheet.create({
-  page: {
-    marginTop: 150,
-  },
-  text: {},
-});
-
-const PreviewPDF = (props) => {
-  const { general, professional, education, skills } = props.state;
-  return (
-    <Document title={`CV-${general.current.name}`}>
-      <Page size="A4" wrap={false} style={styles.page}>
-        <View style>
-          <Text style={styles.text}>
-            {" "}
-            {/* debug={true} */}
-            {general.current.name}
-          </Text>
-        </View>
-      </Page>
-    </Document>
-  );
-};
+import PreviewPDF from "./PreviewPDF";
 
 class Preview extends Component {
   render() {
@@ -52,6 +21,7 @@ class Preview extends Component {
         <PDFViewer className="pdf-viewer" showToolbar={false}>
           <PreviewPDF state={state} />
         </PDFViewer>
+        ;
       </div>
     );
   }
