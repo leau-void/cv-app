@@ -7,6 +7,7 @@ const defaultState = {
     email: "",
     description: "",
   },
+
   professional: [
     {
       title: "",
@@ -25,6 +26,7 @@ const defaultState = {
       to: "",
     },
   ],
+
   skills: {
     current: "",
     saved: [],

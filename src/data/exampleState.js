@@ -19,7 +19,7 @@ const exampleState = {
     },
     {
       title: "Lead Software Engineer",
-      company: "Mozilla Corporation",
+      company: "Mozilla Fdn.",
       city: "Mountain View, CA",
       from: "2016",
       to: "2019",

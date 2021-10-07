@@ -58,15 +58,15 @@ class CV extends Component {
         <div className="CV__sidebar">
           <div>
             <div className="CV__zone-title">Address</div>
-            <div className="CV__main-info">{general.address}</div>
+            <div className="CV__secondary-info">{general.address}</div>
           </div>
           <div>
             <div className="CV__zone-title">Phone</div>
-            <div className="CV__main-info">{general.phone}</div>
+            <div className="CV__secondary-info">{general.phone}</div>
           </div>
           <div>
             <div className="CV__zone-title">Email</div>
-            <div className="CV__main-info CV__email">{general.email}</div>
+            <div className="CV__secondary-info CV__email">{general.email}</div>
           </div>
         </div>
         <footer className="CV__footer"></footer>

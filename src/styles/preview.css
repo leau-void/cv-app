@@ -16,3 +16,9 @@
     margin: 0;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .print-container {
+    margin-bottom: calc(-10vw + 100px);
+  }
+}
