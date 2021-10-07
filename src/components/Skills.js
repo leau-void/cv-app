@@ -28,17 +28,19 @@ class Skills extends Component {
             Add
           </button>
         </form>
-        {saved.map((skill, index) => (
-          <div key={index}>
-            {skill}
-            <button
-              className="button button_remove-skill"
-              onClick={() => handlers.removeSkill({ index })}
-            >
-              X
-            </button>
-          </div>
-        ))}
+        <ul>
+          {saved.map((skill, index) => (
+            <li key={index}>
+              {skill}
+              <button
+                className="button button_remove-skill"
+                onClick={() => handlers.removeSkill({ index })}
+              >
+                X
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }

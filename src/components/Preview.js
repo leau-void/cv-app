@@ -11,16 +11,16 @@ class Preview extends Component {
   render() {
     const { state } = this.props;
     return (
-      <div className="preview">
+      <>
         <ReactToPrint
           documentTitle={"CV-" + state.general.name}
-          trigger={() => <a href="#/">Print or Download as PDF</a>}
+          trigger={() => <button>Print or Download as PDF</button>}
           content={() => this.printOutRef.current}
         />
-        <div ref={this.printOutRef}>
+        <div className="print-container" ref={this.printOutRef}>
           <CV state={state} />
         </div>
-      </div>
+      </>
     );
   }
 }

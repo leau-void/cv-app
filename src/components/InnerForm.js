@@ -7,6 +7,7 @@ class InnerForm extends Component {
     return (
       <div className="inner-form">
         {Object.keys(state).map((prop) => {
+          let className = `inner-form__input inner-form__${prop}`;
           if (prop === "description") {
             return (
               <div className="inner-form__textarea-container" key={prop}>
@@ -14,13 +15,13 @@ class InnerForm extends Component {
                   value={state[prop]}
                   placeholder={placeholders[prop]}
                   onChange={(e) =>
-                    e.target.value.length < 201
+                    e.target.value.length < 282
                       ? handlers.fetchInput({ e, state, prop, zone, index })
                       : null
                   }
-                  className="inner-form__input inner-form__textarea"
+                  className={className + " inner-form__textarea"}
                 ></textarea>
-                <div className="char-count">{state[prop].length}/200</div>
+                <div className="char-count">{state[prop].length}/281</div>
               </div>
             );
           }
@@ -32,13 +33,13 @@ class InnerForm extends Component {
               placeholder={placeholders[prop]}
               onChange={(e) => handlers.fetchInput({ e, prop, zone, index })}
               key={prop}
-              className="inner-form__input"
+              className={className}
             ></input>
           );
         })}
 
         <button
-          className="button button_clear"
+          className="button button_clear inner-form__clear"
           onClick={(e) => handlers.clearInput({ zone, index })}
         >
           Clear

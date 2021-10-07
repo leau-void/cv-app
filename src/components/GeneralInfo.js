@@ -7,7 +7,7 @@ class GeneralInfo extends Component {
     this.placeholders = {
       name: "Full Name",
       title: "Title or Position",
-      address: "Adress",
+      address: "Address",
       phone: "Phone",
       email: "Email",
       description: "Description...",

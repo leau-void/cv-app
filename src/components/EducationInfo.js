@@ -5,12 +5,11 @@ class EducationInfo extends Component {
   constructor(props) {
     super(props);
     this.placeholders = {
-      name: "Institution Name",
+      school: "Institution Name",
       degree: "Degree",
       city: "City",
       from: "From",
       to: "To",
-      description: "Further description or achievements",
     };
   }
 

@@ -9,22 +9,20 @@ const defaultState = {
   },
   professional: [
     {
-      position: "",
+      title: "",
       company: "",
       city: "",
       from: "",
       to: "",
-      description: "",
     },
   ],
   education: [
     {
-      name: "",
+      school: "",
       degree: "",
       city: "",
       from: "",
       to: "",
-      description: "",
     },
   ],
   skills: {

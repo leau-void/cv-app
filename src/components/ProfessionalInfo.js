@@ -5,12 +5,11 @@ class ProfessionalInfo extends Component {
   constructor(props) {
     super(props);
     this.placeholders = {
-      position: "Position",
+      title: "Position",
       company: "Company Name",
       city: "City",
       from: "From",
       to: "To",
-      description: "Further description or achievements",
     };
   }
 

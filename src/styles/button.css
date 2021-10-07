@@ -1,5 +1,6 @@
 .button {
   position: relative;
+  width: 90%;
 }
 
 .button_clear {
@@ -12,9 +13,11 @@
 }
 
 .button_add-skill {
+  width: 10%;
 }
 
 .button_remove-skill {
+  width: 10%;
 }
 
 .button__block {
