@@ -1,4 +1,12 @@
 .footer {
+  background-color: #0f044c;
+  color: white;
+  padding: 0.2rem;
+  padding-top: 0.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .footer__text {
@@ -8,4 +16,5 @@
 }
 
 .footer__github {
+  filter: invert(1);
 }

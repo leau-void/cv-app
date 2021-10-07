@@ -24,7 +24,7 @@ class ProfessionalInfo extends Component {
 
         {stateArray.map((state, index) => {
           return (
-            <div key={index}>
+            <div className="zone__entry" key={index}>
               <InnerForm
                 state={state}
                 handlers={handlers}
@@ -35,8 +35,7 @@ class ProfessionalInfo extends Component {
 
               <button
                 className="button button_remove"
-                onClick={() => handlers.removeEntry({ zone, index })}
-              >
+                onClick={() => handlers.removeEntry({ zone, index })}>
                 Remove Entry
               </button>
             </div>
@@ -44,13 +43,11 @@ class ProfessionalInfo extends Component {
         })}
         <button
           className="button button_add"
-          onClick={() => handlers.addEntry({ zone })}
-        >
+          onClick={() => handlers.addEntry({ zone })}>
           {stateArray.length >= 3 ? (
             <span
               className="button__block"
-              onClick={(e) => e.stopPropagation()}
-            ></span>
+              onClick={(e) => e.stopPropagation()}></span>
           ) : null}
           Add Entry
         </button>

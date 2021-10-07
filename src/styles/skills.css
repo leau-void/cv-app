@@ -1,0 +1,24 @@
+.form-skills {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.form-skills__input {
+  border-radius: 3px 0 0 3px;
+}
+
+.skills-list {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: unset;
+  gap: 0.5rem;
+}
+
+.skills-list__item {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.3rem;
+}

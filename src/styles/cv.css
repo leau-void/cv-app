@@ -14,7 +14,7 @@
     [row3-start] "main sidebar" auto [row3-end]
     [row2-start] "footer footer" 3% [row2-end]
     / auto 30%;
-  font-size: 2.5vw;
+  font-size: min(2.5vw, 20px);
 }
 
 .CV * {
@@ -34,7 +34,7 @@
 
 .CV__name {
   font-size: min(3em, 65px);
-  margin: 0.5vh 0;
+  margin: 0.3vh 0;
 }
 
 .CV__title {

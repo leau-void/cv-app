@@ -19,8 +19,7 @@ class OuterForm extends Component {
 
         <button
           className="button button_example"
-          onClick={handlers.loadExample}
-        >
+          onClick={handlers.loadExample}>
           Load Example
         </button>
         <button className="button button_reset" onClick={handlers.resetForm}>

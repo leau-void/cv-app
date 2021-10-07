@@ -1,5 +1,6 @@
 import "../styles/preview.css";
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import CV from "./CV";
 import ReactToPrint from "react-to-print";
 
@@ -11,16 +12,18 @@ class Preview extends Component {
   render() {
     const { state } = this.props;
     return (
-      <>
+      <div className="preview">
         <ReactToPrint
           documentTitle={"CV-" + state.general.name}
-          trigger={() => <button>Print or Download as PDF</button>}
+          trigger={() => (
+            <button className="button button_print">Print as PDF</button>
+          )}
           content={() => this.printOutRef.current}
         />
         <div className="print-container" ref={this.printOutRef}>
           <CV state={state} />
         </div>
-      </>
+      </div>
     );
   }
 }

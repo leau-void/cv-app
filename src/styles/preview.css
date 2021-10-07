@@ -1,10 +1,15 @@
 .preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -3rem;
+  background-color: #787a91;
 }
 
 .print-container {
   width: 90vw;
-  max-width: 960px;
-  max-height: 1357px;
+  max-width: 720px;
+  max-height: 1018px;
   height: calc(90vw / 210 * 297);
   margin: 20px auto;
 }
@@ -20,5 +25,11 @@
 @media screen and (max-width: 500px) {
   .print-container {
     margin-bottom: calc(-10vw + 100px);
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .preview {
+    background-color: transparent;
   }
 }
