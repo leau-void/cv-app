@@ -16,8 +16,15 @@ class Skills extends Component {
           <input
             onChange={(e) => handlers.fetchInput({ e, zone, prop: "current" })}
             value={current}
+            required
           ></input>
           <button type="submit" className="button button_add-skill">
+            {saved.length >= 5 ? (
+              <span
+                className="button__block"
+                onClick={(e) => e.stopPropagation()}
+              ></span>
+            ) : null}
             Add
           </button>
         </form>
@@ -28,12 +35,6 @@ class Skills extends Component {
               className="button button_remove-skill"
               onClick={() => handlers.removeSkill({ index })}
             >
-              {saved.length >= 5 ? (
-                <span
-                  className="button__block"
-                  onClick={(e) => e.stopPropagation()}
-                ></span>
-              ) : null}
               X
             </button>
           </div>

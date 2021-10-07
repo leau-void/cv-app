@@ -9,15 +9,20 @@ class InnerForm extends Component {
         {Object.keys(state).map((prop) => {
           if (prop === "description") {
             return (
-              <textarea
-                value={state[prop]}
-                placeholder={placeholders[prop]}
-                onChange={(e) =>
-                  handlers.fetchInput({ e, state, prop, zone, index })
-                }
-                key={prop}
-                className="inner-form__input inner-form__textarea"
-              ></textarea>
+              <div className="inner-form__textarea-container">
+                <textarea
+                  value={state[prop]}
+                  placeholder={placeholders[prop]}
+                  onChange={(e) =>
+                    e.target.value.length < 201
+                      ? handlers.fetchInput({ e, state, prop, zone, index })
+                      : null
+                  }
+                  key={prop}
+                  className="inner-form__input inner-form__textarea"
+                ></textarea>
+                <div className="char-count">{state[prop].length}/200</div>
+              </div>
             );
           }
 
