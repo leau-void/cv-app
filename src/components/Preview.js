@@ -1,6 +1,5 @@
 import "../styles/preview.css";
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import CV from "./CV";
 import ReactToPrint from "react-to-print";
 
