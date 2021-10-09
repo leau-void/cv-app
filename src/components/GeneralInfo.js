@@ -1,34 +1,31 @@
 import React, { Component } from "react";
 import InnerForm from "./InnerForm";
 
-class GeneralInfo extends Component {
-  constructor(props) {
-    super(props);
-    this.placeholders = {
-      name: "Full Name",
-      title: "Title or Position",
-      address: "Address",
-      phone: "Phone",
-      email: "Email",
-      description: "Description...",
-    };
-  }
+const GeneralInfo = (props) => {
+  const { state, handlers } = props;
+  const zone = "general";
+  const placeholders = {
+    name: "Full Name",
+    title: "Title or Position",
+    address: "Address",
+    phone: "Phone",
+    email: "Email",
+    description: "Description...",
+  };
 
-  render() {
-    const { state, handlers } = this.props;
-    const zone = "general";
-    return (
-      <div className="zone zone_general">
-        <h2 className="zone__name">Personnal Information</h2>
-        <InnerForm
-          state={state}
-          handlers={handlers}
-          zone={zone}
-          placeholders={this.placeholders}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="zone zone_general">
+      <h2 className="zone__name">Personnal Information</h2>
+      <InnerForm
+        {...{
+          state,
+          handlers,
+          zone,
+          placeholders,
+        }}
+      />
+    </div>
+  );
+};
 
 export default GeneralInfo;
