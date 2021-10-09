@@ -33,4 +33,8 @@ const defaultState = {
   },
 };
 
-export default defaultState;
+const getDefault = (zone) => {
+  if (zone) return JSON.parse(JSON.stringify(defaultState[zone]));
+};
+
+export default getDefault;

@@ -63,4 +63,8 @@ const exampleState = {
   },
 };
 
-export default exampleState;
+const getExample = (zone) => {
+  if (zone) return JSON.parse(JSON.stringify(exampleState[zone]));
+};
+
+export default getExample;
