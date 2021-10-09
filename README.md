@@ -8,6 +8,8 @@ This CV Builder App makes out-of-the-box, ready CVs, so you can now land your dr
 
 Your CV is displayed as it is being built, and when ready, it can be downloaded.
 
+The app was written in React classes at first, and then refactored to be completely functional components, using React Hooks, to practice using both of these component types.
+
 ### Technologies
 
 - [ReactJS](https://reactjs.org/)
@@ -19,8 +21,6 @@ Your CV is displayed as it is being built, and when ready, it can be downloaded.
 ### Future developments
 
 - Picture support
-- Dark mode
-- Landscape mode
 
 ## Contact
 
